@@ -6,44 +6,36 @@ const path = require("path");
 
 program
   .name("flutterberry")
-  .description("Generate starter files for a Flutter project")
-  .option("-p, --project-name <name>", "Name of the Flutter project");
+  .description("Generate a Flutter project with starter files"); // Update description
 
 program.parse(process.argv);
 
-const options = program.opts();
+generateFlutterProject();
 
-if (!options.projectName) {
-  console.error("Project name is required");
-  program.help();
-}
-
-generateFlutterProject(options.projectName);
-
-function generateFlutterProject(projectName) {
-  const projectDir = path.join(process.cwd(), projectName);
-  const libDir = path.join(projectDir, "lib");
+function generateFlutterProject() {
+  const projectDir = path.join(process.cwd(), "my_flutter_project"); // Fixed project name
+  const sourceLibDir = path.join(__dirname, "lib");
+  const destinationLibDir = path.join(projectDir, "lib");
 
   try {
     fs.mkdirSync(projectDir);
-    fs.mkdirSync(libDir);
-
-    const modelsDir = path.join(libDir, "models");
-    fs.mkdirSync(modelsDir);
-    createFile(path.join(modelsDir, "model.dart"), "// model.dart");
-
-    const viewsDir = path.join(libDir, "views");
-    fs.mkdirSync(viewsDir);
-    createFile(path.join(viewsDir, "home.dart"), "// home.dart");
-
-    createFile(path.join(projectDir, "main.dart"), "// main.dart");
-
+    copyDirectory(sourceLibDir, destinationLibDir);
     console.log("Flutter project generated successfully!");
   } catch (error) {
     console.error("Error creating project:", error);
   }
 }
 
-function createFile(filePath, content) {
-  fs.writeFileSync(filePath, content);
+function copyDirectory(source, destination) {
+  fs.mkdirSync(destination, { recursive: true });
+  fs.readdirSync(source).forEach((item) => {
+    const sourcePath = path.join(source, item);
+    const destinationPath = path.join(destination, item);
+
+    if (fs.lstatSync(sourcePath).isDirectory()) {
+      copyDirectory(sourcePath, destinationPath);
+    } else {
+      fs.copyFileSync(sourcePath, destinationPath);
+    }
+  });
 }
