@@ -56,5 +56,3 @@ For supercharged development, it also includes:
 - **freezed**
 - **injectable_generator**
 - **json_serializable**
-
-**## (Rest of your README content...)**
