@@ -1,6 +1,6 @@
 {
   "name": "flutter-berry",
-  "version": "1.2.0",
+  "version": "1.2.4",
   "description": "Flutter kick-starter for berry.",
   "main": "index.js",
   "bin": {
