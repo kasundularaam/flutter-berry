@@ -28,8 +28,14 @@ function generateFlutterProject(projectName) {
     fs.mkdirSync(projectDir);
     fs.mkdirSync(libDir);
 
-    createFile(path.join(libDir, "models", "model.dart"), "// model.dart");
-    createFile(path.join(libDir, "views", "home.dart"), "// home.dart");
+    const modelsDir = path.join(libDir, "models");
+    fs.mkdirSync(modelsDir);
+    createFile(path.join(modelsDir, "model.dart"), "// model.dart");
+
+    const viewsDir = path.join(libDir, "views");
+    fs.mkdirSync(viewsDir);
+    createFile(path.join(viewsDir, "home.dart"), "// home.dart");
+
     createFile(path.join(projectDir, "main.dart"), "// main.dart");
 
     console.log("Flutter project generated successfully!");
