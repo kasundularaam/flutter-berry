@@ -13,9 +13,8 @@ program.parse(process.argv);
 generateFlutterProject();
 
 function generateFlutterProject() {
-  const projectDir = path.join(process.cwd(), "my_flutter_project"); // Fixed project name
   const sourceLibDir = path.join(__dirname, "lib");
-  const destinationLibDir = path.join(projectDir, "lib");
+  const destinationLibDir = path("lib");
 
   try {
     fs.mkdirSync(projectDir);
