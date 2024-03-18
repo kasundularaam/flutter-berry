@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:money_links/presentation/widgets/space.dart';
 
 class ErrorSnackbar extends SnackBar {
   ErrorSnackbar({
