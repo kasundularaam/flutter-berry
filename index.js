@@ -22,6 +22,9 @@ async function executeTasks() {
     await installDevDependencies();
     console.log("Dev dependencies installed successfully!");
 
+    await reFetchPub();
+    console.log("Dependencies re-fetched successfully");
+
     await runBuildRunner();
     console.log("All tasks completed successfully!");
   } catch (error) {
@@ -110,6 +113,26 @@ async function installPackages(packagesList, dev = false) {
         resolve();
       } else {
         reject(new Error(`Installation failed with exit code ${code}`));
+      }
+    });
+  });
+}
+
+async function reFetchPub() {
+  const flutterExecutable = "C:/dev/flutter/bin/flutter.bat";
+
+  return new Promise((resolve, reject) => {
+    const buildProcess = spawn(flutterExecutable, ["pub", "get"], {
+      cwd: process.cwd(),
+    });
+
+    logProcessOutput(buildProcess);
+
+    buildProcess.on("close", (code) => {
+      if (code === 0) {
+        resolve();
+      } else {
+        reject(new Error(`Flutter pub get exited with code ${code}`));
       }
     });
   });
