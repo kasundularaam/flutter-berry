@@ -1,8 +1,8 @@
-**# Flutterberry 🍓**
+# Flutterberry 🍓
 
 Get your Flutter projects off to a flying start with Flutterberry! This handy CLI tool takes care of the boring setup, so you can dive right into coding.
 
-**## What's in the Box? 🚀**
+## What's in the Box? 🚀
 
 With a single command, Flutterberry will:
 
@@ -10,7 +10,7 @@ With a single command, Flutterberry will:
 - **Get the Goods! 📦** Download and install all the necessary dependencies.
 - **Build Time! 🔨** Run `build_runner` to generate those extra bits of Flutter magic.
 
-**## Project Structure 📁**
+## Project Structure 📁
 
 Flutterberry sets you up with the following structure within your project's 'lib' directory:
 
@@ -34,7 +34,7 @@ lib
 - main
 ```
 
-**## Dependencies 💪**
+## Dependencies 💪
 
 Flutterberry gets your project powered up with these essential packages:
 
@@ -47,7 +47,7 @@ Flutterberry gets your project powered up with these essential packages:
 - **injectable**
 - **json_annotation**
 
-**## Dev Dependencies 🛠️**
+## Dev Dependencies 🛠️
 
 For supercharged development, it also includes:
 
