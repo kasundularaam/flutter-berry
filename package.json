@@ -1,0 +1,30 @@
+{
+  "name": "flutter-berry",
+  "version": "1.0.0",
+  "description": "Flutter kick-starter for berry.",
+  "main": "index.js",
+  "bin": {
+    "flutterberry": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kasundularaam/flutter-berry.git"
+  },
+  "keywords": [
+    "flutter",
+    "generator",
+    "cli"
+  ],
+  "author": "Kasun Dulara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kasundularaam/flutter-berry/issues"
+  },
+  "homepage": "https://github.com/kasundularaam/flutter-berry#readme",
+  "dependencies": {
+    "commander": "^12.0.0"
+  }
+}
