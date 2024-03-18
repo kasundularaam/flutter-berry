@@ -26,7 +26,9 @@ async function executeTasks() {
     console.log("Dependencies re-fetched successfully");
 
     await runBuildRunner();
-    console.log("All tasks completed successfully!");
+    console.log(
+      "Starter files? Check. Dependencies? Check. Awesome project setup? Check! 👍"
+    );
   } catch (error) {
     console.error("An error occurred:", error);
   }
