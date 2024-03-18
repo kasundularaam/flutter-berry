@@ -22,6 +22,7 @@ async function executeTasks() {
     await installDevDependencies();
     console.log("Dev dependencies installed successfully!");
 
+    await runBuildRunner();
     console.log("All tasks completed successfully!");
   } catch (error) {
     console.error("An error occurred:", error);
@@ -109,6 +110,35 @@ async function installPackages(packagesList, dev = false) {
         resolve();
       } else {
         reject(new Error(`Installation failed with exit code ${code}`));
+      }
+    });
+  });
+}
+
+async function runBuildRunner() {
+  const flutterExecutable = "C:/dev/flutter/bin/flutter.bat";
+
+  return new Promise((resolve, reject) => {
+    const buildProcess = spawn(
+      flutterExecutable,
+      [
+        "packages",
+        "pub",
+        "run",
+        "build_runner",
+        "build",
+        "--delete-conflicting-outputs",
+      ],
+      { cwd: process.cwd() }
+    );
+
+    logProcessOutput(buildProcess);
+
+    buildProcess.on("close", (code) => {
+      if (code === 0) {
+        resolve();
+      } else {
+        reject(new Error(`Build Runner exited with code ${code}`));
       }
     });
   });

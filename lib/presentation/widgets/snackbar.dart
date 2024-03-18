@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'space.dart';
+
 class ErrorSnackbar extends SnackBar {
   ErrorSnackbar({
     super.key,
