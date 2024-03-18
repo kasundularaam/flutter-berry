@@ -1,5 +1,3 @@
-Absolutely! Let's integrate that into your README to make it even more comprehensive. Here's an updated version:
-
 **# Flutterberry 🍓**
 
 Get your Flutter projects off to a flying start with Flutterberry! This handy CLI tool takes care of the boring setup, so you can dive right into coding.
@@ -60,5 +58,3 @@ For supercharged development, it also includes:
 - **json_serializable**
 
 **## (Rest of your README content...)**
-
-Let me know if you'd like any other adjustments or additions! 😊
