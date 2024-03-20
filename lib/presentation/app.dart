@@ -9,7 +9,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: "Money Links",
+      title: "App Title",
       debugShowCheckedModeBanner: false,
       theme: FlexThemeData.light(scheme: FlexScheme.wasabi),
       darkTheme: FlexThemeData.dark(scheme: FlexScheme.wasabi),

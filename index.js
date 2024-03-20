@@ -13,18 +13,23 @@ program
 
 async function executeTasks() {
   try {
+    console.log("Copying starter files...⌛");
     await copyStarterLib();
-    console.log("Starter files copied successfully!");
+    console.log("Starter files copied successfully! ✅");
 
+    console.log("Installing dependencies... ⌛");
     await installDependencies();
-    console.log("Dependencies installed successfully!");
+    console.log("Dependencies installed successfully! ✅");
 
+    console.log("Installing dev dependencies... ⌛");
     await installDevDependencies();
-    console.log("Dev dependencies installed successfully!");
+    console.log("Dev dependencies installed successfully! ✅");
 
+    console.log("Re-fetching Dependencies... ⌛");
     await reFetchPub();
-    console.log("Dependencies re-fetched successfully");
+    console.log("Dependencies re-fetched successfully! ✅");
 
+    console.log("Starting build runner... ⌛");
     await runBuildRunner();
     console.log(
       "Starter files? Check. Dependencies? Check. Awesome project setup? Check! 👍"
