@@ -3,8 +3,8 @@ part 'failure.freezed.dart';
 
 @freezed
 abstract class Failure with _$Failure {
-  const factory Failure({required String message}) = _Failure;
+  const factory Failure(String message) = _Failure;
   factory Failure.unknown() {
-    return const Failure(message: "Unknown Error Occurred");
+    return const Failure("Unknown Error Occurred");
   }
 }

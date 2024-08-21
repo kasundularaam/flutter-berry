@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'router/app_router.dart';
 
 class App extends StatelessWidget {
-  const App({super.key});
+  App({super.key});
 
   final _router = AppRouter();
 
