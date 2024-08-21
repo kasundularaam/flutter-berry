@@ -11,3 +11,9 @@ extension EitherX<L, R> on Either<L, R> {
     return fold((l) => l, (r) => throw const Failure(message: "Invalid value"));
   }
 }
+
+extension OptionX<T> on Option<T> {
+  T getOrCrash() {
+    return fold(() => throw const Failure("Invalid value"), (r) => r);
+  }
+}

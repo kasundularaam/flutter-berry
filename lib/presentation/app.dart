@@ -6,6 +6,8 @@ import 'router/app_router.dart';
 class App extends StatelessWidget {
   const App({super.key});
 
+  final _router = AppRouter();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
@@ -14,7 +16,7 @@ class App extends StatelessWidget {
       theme: FlexThemeData.light(scheme: FlexScheme.wasabi),
       darkTheme: FlexThemeData.dark(scheme: FlexScheme.wasabi),
       themeMode: ThemeMode.system,
-      routerConfig: AppRouter().config(),
+      routerConfig: _router.config(),
     );
   }
 }

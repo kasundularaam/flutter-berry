@@ -85,6 +85,8 @@ async function installDependencies() {
     "get_it",
     "injectable",
     "json_annotation",
+    "google_fonts",
+    "toastification",
   ];
 
   await installPackages(dependencies);
