@@ -153,14 +153,7 @@ async function runBuildRunner() {
   return new Promise((resolve, reject) => {
     const buildProcess = spawn(
       flutterExecutable,
-      [
-        "packages",
-        "pub",
-        "run",
-        "build_runner",
-        "build",
-        "--delete-conflicting-outputs",
-      ],
+      ["dart", "run", "build_runner", "build", "--delete-conflicting-outputs"],
       { cwd: process.cwd() }
     );
 
