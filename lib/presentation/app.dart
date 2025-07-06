@@ -1,12 +1,18 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
+import 'package:injectable/injectable.dart';
 
 import 'router/app_router.dart';
 
+@injectable
 class App extends StatelessWidget {
-  App({super.key});
+  final AppRouter _router;
+  const App._(this._router);
 
-  final _router = AppRouter();
+  @factoryMethod
+  static App create(AppRouter router) {
+    return App._(router);
+  }
 
   @override
   Widget build(BuildContext context) {

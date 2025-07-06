@@ -1,6 +1,6 @@
 {
   "name": "flutter-berry",
-  "version": "1.4.4",
+  "version": "1.5.0",
   "description": "Flutter kick-starter for berry.",
   "main": "index.js",
   "bin": {
@@ -25,7 +25,6 @@
   },
   "homepage": "https://github.com/kasundularaam/flutter-berry#readme",
   "dependencies": {
-    "child_process": "^1.0.2",
     "commander": "^12.0.0"
   }
 }

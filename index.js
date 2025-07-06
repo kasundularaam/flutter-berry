@@ -35,7 +35,7 @@ async function executeTasks() {
       "Starter files? Check. Dependencies? Check. Awesome project setup? Check! 👍"
     );
   } catch (error) {
-    console.error("An error occurred:", error);
+    console.error("An error occurred:", error.message);
   }
 }
 
@@ -44,26 +44,22 @@ async function copyStarterLib() {
   const destinationLibDir = path.join(process.cwd(), "lib");
 
   try {
-    // Delete the existing 'lib' folder (if it exists)
     if (fs.existsSync(destinationLibDir)) {
       await fs.promises.rm(destinationLibDir, { recursive: true, force: true });
     }
-
     await copyDirectory(sourceLibDir, destinationLibDir);
   } catch (error) {
-    throw error; // Re-throw the error
+    throw error;
   }
 }
 
 async function copyDirectory(source, destination) {
   await fs.promises.mkdir(destination, { recursive: true });
-
   const items = await fs.promises.readdir(source);
 
   for (const item of items) {
     const sourcePath = path.join(source, item);
     const destinationPath = path.join(destination, item);
-
     const stats = await fs.promises.lstat(sourcePath);
 
     if (stats.isDirectory()) {
@@ -75,7 +71,6 @@ async function copyDirectory(source, destination) {
 }
 
 async function installDependencies() {
-  // Regular dependencies
   const dependencies = [
     "auto_route",
     "dartz",
@@ -88,12 +83,10 @@ async function installDependencies() {
     "google_fonts",
     "toastification",
   ];
-
   await installPackages(dependencies);
 }
 
 async function installDevDependencies() {
-  // Dev dependencies
   const devDependencies = [
     "auto_route_generator",
     "build_runner",
@@ -101,21 +94,25 @@ async function installDevDependencies() {
     "injectable_generator",
     "json_serializable",
   ];
-
   await installPackages(devDependencies, true);
 }
 
 async function installPackages(packagesList, dev = false) {
-  const flutterExecutable = "flutter";
-
   return new Promise((resolve, reject) => {
     const installProcess = spawn(
-      flutterExecutable,
+      "flutter", // Simple approach since flutter works in your terminal
       ["pub", "add", ...packagesList, ...(dev ? ["-d"] : [])],
-      { cwd: process.cwd() }
+      {
+        cwd: process.cwd(),
+        shell: true, // This helps on Windows
+      }
     );
 
     logProcessOutput(installProcess);
+
+    installProcess.on("error", (error) => {
+      reject(new Error(`Failed to run Flutter command: ${error.message}`));
+    });
 
     installProcess.on("close", (code) => {
       if (code === 0) {
@@ -128,14 +125,17 @@ async function installPackages(packagesList, dev = false) {
 }
 
 async function reFetchPub() {
-  const flutterExecutable = "C:/dev/flutter/bin/flutter.bat";
-
   return new Promise((resolve, reject) => {
-    const buildProcess = spawn(flutterExecutable, ["pub", "get"], {
+    const buildProcess = spawn("flutter", ["pub", "get"], {
       cwd: process.cwd(),
+      shell: true,
     });
 
     logProcessOutput(buildProcess);
+
+    buildProcess.on("error", (error) => {
+      reject(new Error(`Failed to run Flutter command: ${error.message}`));
+    });
 
     buildProcess.on("close", (code) => {
       if (code === 0) {
@@ -148,11 +148,9 @@ async function reFetchPub() {
 }
 
 async function runBuildRunner() {
-  const flutterExecutable = "C:/dev/flutter/bin/flutter.bat";
-
   return new Promise((resolve, reject) => {
     const buildProcess = spawn(
-      flutterExecutable,
+      "flutter",
       [
         "packages",
         "pub",
@@ -161,10 +159,17 @@ async function runBuildRunner() {
         "build",
         "--delete-conflicting-outputs",
       ],
-      { cwd: process.cwd() }
+      {
+        cwd: process.cwd(),
+        shell: true,
+      }
     );
 
     logProcessOutput(buildProcess);
+
+    buildProcess.on("error", (error) => {
+      reject(new Error(`Failed to run Flutter command: ${error.message}`));
+    });
 
     buildProcess.on("close", (code) => {
       if (code === 0) {
