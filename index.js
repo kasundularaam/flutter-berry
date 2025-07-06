@@ -106,7 +106,7 @@ async function installDevDependencies() {
 }
 
 async function installPackages(packagesList, dev = false) {
-  const flutterExecutable = "C:/dev/flutter/bin/flutter.bat";
+  const flutterExecutable = "flutter";
 
   return new Promise((resolve, reject) => {
     const installProcess = spawn(
