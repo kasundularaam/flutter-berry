@@ -1,7 +1,7 @@
 # Flutterberry 🍓
 
-[![npm version](https://img.shields.io/npm/v/flutterberry.svg)](https://www.npmjs.com/package/flutterberry)
-[![npm downloads](https://img.shields.io/npm/dm/flutterberry.svg)](https://www.npmjs.com/package/flutterberry)
+[![npm version](https://img.shields.io/npm/v/flutterberry.svg)](https://www.npmjs.com/package/flutter-berry)
+[![npm downloads](https://img.shields.io/npm/dm/flutterberry.svg)](https://www.npmjs.com/package/flutter-berry)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Flutter](https://img.shields.io/badge/Flutter-3.0+-blue.svg)](https://flutter.dev)
 [![Node.js](https://img.shields.io/badge/Node.js-14+-green.svg)](https://nodejs.org)
