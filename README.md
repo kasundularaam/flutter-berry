@@ -36,7 +36,7 @@ With a single `flutterberry` command, you get:
 Install Flutterberry globally via npm:
 
 ```bash
-npm install -g flutterberry
+npm install -g flutter-berry
 ```
 
 ## 🎯 Usage
